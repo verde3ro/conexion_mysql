@@ -4,18 +4,15 @@ import java.sql.Connection;
 import java.sql.DriverManager;
 import java.sql.SQLException;
 
-public class Conexion {
+public class ConexionMSSQL {
 
 	private Connection connection;
-	private static final String URL = "jdbc:mysql://localhost:3306/sakila?useSSL=false";
+	private static final String URL = "jdbc:sqlserver://localhost:1433;DatabaseName=DBTEST01";
 	private static final String USER = "test";
 	private static final String PASSWORD = "123456789";
 
 	public void connectar() {
 		try {
-			// LE dcimos a java a que base nos conectamos
-			// Class.forName("com.mysql.cj.jdbc.Driver") Es para la version 8 de mysql
-			// Class.forName("com.mysql.jdbc.Driver");
 			this.connection = DriverManager.getConnection(URL, USER, PASSWORD);
 		} catch (SQLException ex) {
 			ex.printStackTrace();
